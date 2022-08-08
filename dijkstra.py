@@ -50,6 +50,12 @@ class ShortestPath():
                 if weighted_distance < self.distances[adjacency_node]:
                     self.distances[adjacency_node] = weighted_distance
                     heapq.heappush(queue, (weighted_distance, adjacency_node))
+                    
+        seq = list(self.distances.keys())
+
+        for i in range(len(self.distances)): 
+          if int(self.distances[seq[i]]) > self.inf:
+            self.distances[seq[i]] = "There is no connection between two nodes"
 
         return self.distances
 
